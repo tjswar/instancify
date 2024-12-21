@@ -1,0 +1,687 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B75D263D2D08CD1100FC01A7 /* AWSAPIGateway in Frameworks */ = {isa = PBXBuildFile; productRef = B75D263C2D08CD1100FC01A7 /* AWSAPIGateway */; };
+		B75D263F2D08CD1100FC01A7 /* AWSAppleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B75D263E2D08CD1100FC01A7 /* AWSAppleSignIn */; };
+		B75D26412D08CD1100FC01A7 /* AWSAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = B75D26402D08CD1100FC01A7 /* AWSAuthCore */; };
+		B75D26432D08CD1100FC01A7 /* AWSAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = B75D26422D08CD1100FC01A7 /* AWSAuthUI */; };
+		B75D26452D08CD1100FC01A7 /* AWSAutoScaling in Frameworks */ = {isa = PBXBuildFile; productRef = B75D26442D08CD1100FC01A7 /* AWSAutoScaling */; };
+		B75D26562D08D2D600FC01A7 /* AWSCloudWatch in Frameworks */ = {isa = PBXBuildFile; productRef = B75D26552D08D2D600FC01A7 /* AWSCloudWatch */; };
+		B75D26582D08D2D600FC01A7 /* AWSCognitoIdentityProvider in Frameworks */ = {isa = PBXBuildFile; productRef = B75D26572D08D2D600FC01A7 /* AWSCognitoIdentityProvider */; };
+		B75D265A2D08D2D600FC01A7 /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = B75D26592D08D2D600FC01A7 /* AWSCore */; };
+		B75D265C2D08D2D600FC01A7 /* AWSDynamoDB in Frameworks */ = {isa = PBXBuildFile; productRef = B75D265B2D08D2D600FC01A7 /* AWSDynamoDB */; };
+		B75D265E2D08D2D600FC01A7 /* AWSEC2 in Frameworks */ = {isa = PBXBuildFile; productRef = B75D265D2D08D2D600FC01A7 /* AWSEC2 */; };
+		B75D26602D08D2D600FC01A7 /* AWSLambda in Frameworks */ = {isa = PBXBuildFile; productRef = B75D265F2D08D2D600FC01A7 /* AWSLambda */; };
+		B75D26622D08D2D600FC01A7 /* AWSS3 in Frameworks */ = {isa = PBXBuildFile; productRef = B75D26612D08D2D600FC01A7 /* AWSS3 */; };
+		B79B85102D12A36A000B4F09 /* AWSSageMakerRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = B79B850F2D12A36A000B4F09 /* AWSSageMakerRuntime */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B75D26062D08C6F100FC01A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B75D25ED2D08C6F000FC01A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B75D25F42D08C6F000FC01A7;
+			remoteInfo = Instancify;
+		};
+		B75D26102D08C6F100FC01A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B75D25ED2D08C6F000FC01A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B75D25F42D08C6F000FC01A7;
+			remoteInfo = Instancify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B75D25F52D08C6F000FC01A7 /* Instancify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instancify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75D26052D08C6F100FC01A7 /* InstancifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstancifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75D260F2D08C6F100FC01A7 /* InstancifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstancifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B75D25F72D08C6F000FC01A7 /* Instancify */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Instancify;
+			sourceTree = "<group>";
+		};
+		B75D26082D08C6F100FC01A7 /* InstancifyTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = InstancifyTests;
+			sourceTree = "<group>";
+		};
+		B75D26122D08C6F100FC01A7 /* InstancifyUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = InstancifyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B75D25F22D08C6F000FC01A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75D26582D08D2D600FC01A7 /* AWSCognitoIdentityProvider in Frameworks */,
+				B75D26562D08D2D600FC01A7 /* AWSCloudWatch in Frameworks */,
+				B75D26602D08D2D600FC01A7 /* AWSLambda in Frameworks */,
+				B75D26432D08CD1100FC01A7 /* AWSAuthUI in Frameworks */,
+				B75D265A2D08D2D600FC01A7 /* AWSCore in Frameworks */,
+				B75D265C2D08D2D600FC01A7 /* AWSDynamoDB in Frameworks */,
+				B75D26622D08D2D600FC01A7 /* AWSS3 in Frameworks */,
+				B75D265E2D08D2D600FC01A7 /* AWSEC2 in Frameworks */,
+				B79B85102D12A36A000B4F09 /* AWSSageMakerRuntime in Frameworks */,
+				B75D263D2D08CD1100FC01A7 /* AWSAPIGateway in Frameworks */,
+				B75D26452D08CD1100FC01A7 /* AWSAutoScaling in Frameworks */,
+				B75D26412D08CD1100FC01A7 /* AWSAuthCore in Frameworks */,
+				B75D263F2D08CD1100FC01A7 /* AWSAppleSignIn in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75D26022D08C6F100FC01A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75D260C2D08C6F100FC01A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B75D25EC2D08C6F000FC01A7 = {
+			isa = PBXGroup;
+			children = (
+				B75D25F72D08C6F000FC01A7 /* Instancify */,
+				B75D26082D08C6F100FC01A7 /* InstancifyTests */,
+				B75D26122D08C6F100FC01A7 /* InstancifyUITests */,
+				B75D25F62D08C6F000FC01A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B75D25F62D08C6F000FC01A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B75D25F52D08C6F000FC01A7 /* Instancify.app */,
+				B75D26052D08C6F100FC01A7 /* InstancifyTests.xctest */,
+				B75D260F2D08C6F100FC01A7 /* InstancifyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B75D25F42D08C6F000FC01A7 /* Instancify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B75D26192D08C6F100FC01A7 /* Build configuration list for PBXNativeTarget "Instancify" */;
+			buildPhases = (
+				B75D25F12D08C6F000FC01A7 /* Sources */,
+				B75D25F22D08C6F000FC01A7 /* Frameworks */,
+				B75D25F32D08C6F000FC01A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B75D25F72D08C6F000FC01A7 /* Instancify */,
+			);
+			name = Instancify;
+			packageProductDependencies = (
+				B75D263C2D08CD1100FC01A7 /* AWSAPIGateway */,
+				B75D263E2D08CD1100FC01A7 /* AWSAppleSignIn */,
+				B75D26402D08CD1100FC01A7 /* AWSAuthCore */,
+				B75D26422D08CD1100FC01A7 /* AWSAuthUI */,
+				B75D26442D08CD1100FC01A7 /* AWSAutoScaling */,
+				B75D26552D08D2D600FC01A7 /* AWSCloudWatch */,
+				B75D26572D08D2D600FC01A7 /* AWSCognitoIdentityProvider */,
+				B75D26592D08D2D600FC01A7 /* AWSCore */,
+				B75D265B2D08D2D600FC01A7 /* AWSDynamoDB */,
+				B75D265D2D08D2D600FC01A7 /* AWSEC2 */,
+				B75D265F2D08D2D600FC01A7 /* AWSLambda */,
+				B75D26612D08D2D600FC01A7 /* AWSS3 */,
+				B79B850F2D12A36A000B4F09 /* AWSSageMakerRuntime */,
+			);
+			productName = Instancify;
+			productReference = B75D25F52D08C6F000FC01A7 /* Instancify.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B75D26042D08C6F100FC01A7 /* InstancifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B75D261C2D08C6F100FC01A7 /* Build configuration list for PBXNativeTarget "InstancifyTests" */;
+			buildPhases = (
+				B75D26012D08C6F100FC01A7 /* Sources */,
+				B75D26022D08C6F100FC01A7 /* Frameworks */,
+				B75D26032D08C6F100FC01A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B75D26072D08C6F100FC01A7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B75D26082D08C6F100FC01A7 /* InstancifyTests */,
+			);
+			name = InstancifyTests;
+			packageProductDependencies = (
+			);
+			productName = InstancifyTests;
+			productReference = B75D26052D08C6F100FC01A7 /* InstancifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B75D260E2D08C6F100FC01A7 /* InstancifyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B75D261F2D08C6F100FC01A7 /* Build configuration list for PBXNativeTarget "InstancifyUITests" */;
+			buildPhases = (
+				B75D260B2D08C6F100FC01A7 /* Sources */,
+				B75D260C2D08C6F100FC01A7 /* Frameworks */,
+				B75D260D2D08C6F100FC01A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B75D26112D08C6F100FC01A7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B75D26122D08C6F100FC01A7 /* InstancifyUITests */,
+			);
+			name = InstancifyUITests;
+			packageProductDependencies = (
+			);
+			productName = InstancifyUITests;
+			productReference = B75D260F2D08C6F100FC01A7 /* InstancifyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B75D25ED2D08C6F000FC01A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					B75D25F42D08C6F000FC01A7 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					B75D26042D08C6F100FC01A7 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = B75D25F42D08C6F000FC01A7;
+					};
+					B75D260E2D08C6F100FC01A7 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = B75D25F42D08C6F000FC01A7;
+					};
+				};
+			};
+			buildConfigurationList = B75D25F02D08C6F000FC01A7 /* Build configuration list for PBXProject "Instancify" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B75D25EC2D08C6F000FC01A7;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B75D25F62D08C6F000FC01A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B75D25F42D08C6F000FC01A7 /* Instancify */,
+				B75D26042D08C6F100FC01A7 /* InstancifyTests */,
+				B75D260E2D08C6F100FC01A7 /* InstancifyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B75D25F32D08C6F000FC01A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75D26032D08C6F100FC01A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75D260D2D08C6F100FC01A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B75D25F12D08C6F000FC01A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75D26012D08C6F100FC01A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75D260B2D08C6F100FC01A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B75D26072D08C6F100FC01A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B75D25F42D08C6F000FC01A7 /* Instancify */;
+			targetProxy = B75D26062D08C6F100FC01A7 /* PBXContainerItemProxy */;
+		};
+		B75D26112D08C6F100FC01A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B75D25F42D08C6F000FC01A7 /* Instancify */;
+			targetProxy = B75D26102D08C6F100FC01A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B75D26172D08C6F100FC01A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B75D26182D08C6F100FC01A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B75D261A2D08C6F100FC01A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Instancify/Preview Content\"";
+				DEVELOPMENT_TEAM = 34J85B27LM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.medilook.Instancify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B75D261B2D08C6F100FC01A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Instancify/Preview Content\"";
+				DEVELOPMENT_TEAM = 34J85B27LM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.medilook.Instancify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B75D261D2D08C6F100FC01A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34J85B27LM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.medilook.InstancifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instancify.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Instancify";
+			};
+			name = Debug;
+		};
+		B75D261E2D08C6F100FC01A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34J85B27LM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.medilook.InstancifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instancify.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Instancify";
+			};
+			name = Release;
+		};
+		B75D26202D08C6F100FC01A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34J85B27LM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.medilook.InstancifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Instancify;
+			};
+			name = Debug;
+		};
+		B75D26212D08C6F100FC01A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34J85B27LM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.medilook.InstancifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Instancify;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B75D25F02D08C6F000FC01A7 /* Build configuration list for PBXProject "Instancify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75D26172D08C6F100FC01A7 /* Debug */,
+				B75D26182D08C6F100FC01A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B75D26192D08C6F100FC01A7 /* Build configuration list for PBXNativeTarget "Instancify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75D261A2D08C6F100FC01A7 /* Debug */,
+				B75D261B2D08C6F100FC01A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B75D261C2D08C6F100FC01A7 /* Build configuration list for PBXNativeTarget "InstancifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75D261D2D08C6F100FC01A7 /* Debug */,
+				B75D261E2D08C6F100FC01A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B75D261F2D08C6F100FC01A7 /* Build configuration list for PBXNativeTarget "InstancifyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75D26202D08C6F100FC01A7 /* Debug */,
+				B75D26212D08C6F100FC01A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.38.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B75D263C2D08CD1100FC01A7 /* AWSAPIGateway */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSAPIGateway;
+		};
+		B75D263E2D08CD1100FC01A7 /* AWSAppleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSAppleSignIn;
+		};
+		B75D26402D08CD1100FC01A7 /* AWSAuthCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSAuthCore;
+		};
+		B75D26422D08CD1100FC01A7 /* AWSAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSAuthUI;
+		};
+		B75D26442D08CD1100FC01A7 /* AWSAutoScaling */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSAutoScaling;
+		};
+		B75D26552D08D2D600FC01A7 /* AWSCloudWatch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCloudWatch;
+		};
+		B75D26572D08D2D600FC01A7 /* AWSCognitoIdentityProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCognitoIdentityProvider;
+		};
+		B75D26592D08D2D600FC01A7 /* AWSCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCore;
+		};
+		B75D265B2D08D2D600FC01A7 /* AWSDynamoDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSDynamoDB;
+		};
+		B75D265D2D08D2D600FC01A7 /* AWSEC2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSEC2;
+		};
+		B75D265F2D08D2D600FC01A7 /* AWSLambda */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSLambda;
+		};
+		B75D26612D08D2D600FC01A7 /* AWSS3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSS3;
+		};
+		B79B850F2D12A36A000B4F09 /* AWSSageMakerRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75D263B2D08CD1100FC01A7 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSSageMakerRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B75D25ED2D08C6F000FC01A7 /* Project object */;
+}

@@ -1,0 +1,16 @@
+<key>AWS</key>
+<dict>
+    <key>Region</key>
+    <string>us-east-1</string>
+    <key>CredentialsProvider</key>
+    <dict>
+        <key>CognitoIdentity</key>
+        <dict>
+            <key>Default</key>
+            <dict>
+                <key>Region</key>
+                <string>us-east-1</string>
+            </dict>
+        </dict>
+    </dict>
+</dict> 
