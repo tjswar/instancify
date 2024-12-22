@@ -93,9 +93,7 @@ class AWSManager {
                         id: "error",
                         name: "Error",
                         status: "error",
-                        type: .ec2,
-                        instanceType: nil,
-                        launchTime: nil
+                        type: .ec2
                     )
                     continuation.resume(returning: [errorResource])
                     return
@@ -108,9 +106,7 @@ class AWSManager {
                         id: "empty",
                         name: "No Instances",
                         status: "empty",
-                        type: .ec2,
-                        instanceType: nil,
-                        launchTime: nil
+                        type: .ec2
                     )
                     continuation.resume(returning: [emptyResource])
                     return
@@ -171,7 +167,9 @@ class AWSManager {
                             status: status,
                             type: .ec2,
                             instanceType: instanceTypeStr,
-                            launchTime: launchTime
+                            launchTime: launchTime,
+                            publicIP: instance.publicIpAddress,
+                            privateIP: instance.privateIpAddress
                         )
                         
                         print("Added instance: Name=\(name), ID=\(instanceId), Type=\(instanceTypeStr), Status=\(status)")
@@ -235,11 +233,29 @@ class AWSManager {
     
     // Add missing instance management methods
     func startInstance(instanceId: String) async throws {
-        let ec2 = AWSEC2.default()
+        guard let connection = currentConnection else {
+            throw AWSError.notConfigured
+        }
+        
+        // Create a new configuration with current credentials
+        let credentialsProvider = AWSStaticCredentialsProvider(
+            accessKey: connection.accessKeyId,
+            secretKey: connection.secretKey
+        )
+        
+        let configuration = AWSServiceConfiguration(
+            region: .USEast1,  // Use the current region
+            credentialsProvider: credentialsProvider
+        )
+        
+        // Register EC2 with this configuration
+        AWSEC2.register(with: configuration!, forKey: "StartInstance")
+        let ec2 = AWSEC2(forKey: "StartInstance")
+        
         let request = AWSEC2StartInstancesRequest()!
         request.instanceIds = [instanceId]
         
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             ec2.startInstances(request) { response, error in
                 if let error = error {
                     continuation.resume(throwing: AWSError.serviceError(error.localizedDescription))
@@ -317,15 +333,34 @@ class AWSManager {
     }
     
     func rebootInstance(instanceId: String) async throws {
-        let ec2 = AWSEC2.default()
+        guard let connection = currentConnection else {
+            throw AWSError.notConfigured
+        }
+        
+        let credentialsProvider = AWSStaticCredentialsProvider(
+            accessKey: connection.accessKeyId,
+            secretKey: connection.secretKey
+        )
+        
+        let awsRegion = getAWSRegion(from: connection.region)
+        let configuration = AWSServiceConfiguration(
+            region: awsRegion,
+            credentialsProvider: credentialsProvider
+        )
+        
+        AWSEC2.register(with: configuration!, forKey: "RebootInstance")
+        let ec2 = AWSEC2(forKey: "RebootInstance")
+        
         let request = AWSEC2RebootInstancesRequest()!
         request.instanceIds = [instanceId]
         
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             ec2.rebootInstances(request) { error in
                 if let error = error {
+                    print("Reboot error: \(error.localizedDescription)")
                     continuation.resume(throwing: AWSError.serviceError(error.localizedDescription))
                 } else {
+                    print("Reboot request sent successfully")
                     continuation.resume()
                 }
             }
@@ -333,18 +368,52 @@ class AWSManager {
     }
     
     func terminateInstance(instanceId: String) async throws {
-        let ec2 = AWSEC2.default()
+        guard let connection = currentConnection else {
+            throw AWSError.notConfigured
+        }
+        
+        let credentialsProvider = AWSStaticCredentialsProvider(
+            accessKey: connection.accessKeyId,
+            secretKey: connection.secretKey
+        )
+        
+        let awsRegion = getAWSRegion(from: connection.region)
+        let configuration = AWSServiceConfiguration(
+            region: awsRegion,
+            credentialsProvider: credentialsProvider
+        )
+        
+        AWSEC2.register(with: configuration!, forKey: "TerminateInstance")
+        let ec2 = AWSEC2(forKey: "TerminateInstance")
+        
         let request = AWSEC2TerminateInstancesRequest()!
         request.instanceIds = [instanceId]
         
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             ec2.terminateInstances(request) { response, error in
                 if let error = error {
+                    print("Terminate error: \(error.localizedDescription)")
                     continuation.resume(throwing: AWSError.serviceError(error.localizedDescription))
                 } else {
+                    print("Terminate request sent successfully")
                     continuation.resume()
                 }
             }
+        }
+    }
+    
+    // Helper function to convert region string to AWSRegionType
+    private func getAWSRegion(from region: String) -> AWSRegionType {
+        switch region {
+        case "us-east-1": return .USEast1
+        case "us-east-2": return .USEast2
+        case "us-west-1": return .USWest1
+        case "us-west-2": return .USWest2
+        case "eu-west-1": return .EUWest1
+        case "eu-central-1": return .EUCentral1
+        case "ap-southeast-1": return .APSoutheast1
+        case "ap-southeast-2": return .APSoutheast2
+        default: return .USEast1
         }
     }
     

@@ -3,6 +3,7 @@ import SwiftUI
 struct ConnectAWSView: View {
     @StateObject private var viewModel = ConnectAWSViewModel()
     @Environment(\.dismiss) private var dismiss
+    @State private var showingOnboarding = false
     
     var body: some View {
         NavigationView {
@@ -47,6 +48,14 @@ struct ConnectAWSView: View {
                     }
                     .disabled(viewModel.isLoading)
                 }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingOnboarding = true
+                    } label: {
+                        Image(systemName: "questionmark.circle")
+                    }
+                }
             }
             .alert("Error", isPresented: .constant(viewModel.error != nil)) {
                 Button("OK") {
@@ -64,6 +73,9 @@ struct ConnectAWSView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.black.opacity(0.2))
                 }
+            }
+            .sheet(isPresented: $showingOnboarding) {
+                OnboardingView()
             }
         }
     }

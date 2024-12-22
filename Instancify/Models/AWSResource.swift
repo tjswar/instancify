@@ -7,6 +7,19 @@ struct AWSResource: Identifiable {
     let type: AWSResourceType
     let instanceType: String?
     let launchTime: Date?
+    let publicIP: String?
+    let privateIP: String?
+    
+    init(id: String, name: String, status: String, type: AWSResourceType, instanceType: String? = nil, launchTime: Date? = nil, publicIP: String? = nil, privateIP: String? = nil) {
+        self.id = id
+        self.name = name
+        self.status = status
+        self.type = type
+        self.instanceType = instanceType
+        self.launchTime = launchTime
+        self.publicIP = publicIP
+        self.privateIP = privateIP
+    }
     
     var runningTime: String {
         guard let launch = launchTime else { return "N/A" }

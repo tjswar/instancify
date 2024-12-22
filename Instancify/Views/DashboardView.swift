@@ -31,6 +31,9 @@ struct DashboardView: View {
                 CostOverviewSection(viewModel: viewModel)
                     .padding(.bottom, 8)
                 
+                StatsSection(viewModel: viewModel)
+                    .padding(.bottom, 8)
+                
                 QuickActionsSection(viewModel: viewModel, onActionComplete: {
                     // Show loading and refresh after action completes
                     withAnimation {
@@ -44,9 +47,6 @@ struct DashboardView: View {
                     }
                 })
                 .padding(.bottom, 8)
-                
-                StatsSection(viewModel: viewModel)
-                    .padding(.bottom, 8)
                 
                 ServicesSection(viewModel: viewModel)
             }

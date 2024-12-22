@@ -4,105 +4,164 @@ struct InstanceDetailView: View {
     let instance: AWSResource
     @StateObject private var viewModel = InstanceDetailViewModel()
     @Environment(\.dismiss) private var dismiss
-    @State private var showingActionConfirmation = false
+    @State private var showingConfirmation = false
     @State private var selectedAction: InstanceAction?
+    @State private var autoRefreshTimer: Timer?
     
     var body: some View {
         List {
-            // Instance Details Section
-            Text("Instance Details").font(.headline)
-            DetailRow(label: "Name", value: instance.name)
-            DetailRow(label: "ID", value: instance.id)
-            DetailRow(label: "Type", value: instance.instanceType ?? "t2.micro")
-            DetailRow(
-                label: "Status",
-                value: instance.status,
-                trailing: StatusIndicator(status: instance.status)
-            )
-            
-            // Actions Section
-            Text("Actions").font(.headline)
-            ForEach(InstanceAction.allCases) { action in
-                Button(action: {
-                    selectedAction = action
-                    showingActionConfirmation = true
-                }) {
-                    HStack {
-                        Image(systemName: action.icon)
-                            .foregroundColor(action.color)
-                        Text(action.title)
-                    }
+            // Instance Info Section
+            Section {
+                DetailRow(label: "Instance ID", value: instance.id)
+                DetailRow(label: "Name", value: instance.name)
+                DetailRow(label: "Type", value: instance.instanceType ?? "N/A")
+                DetailRow(label: "Status", value: instance.status) {
+                    StatusBadge(status: instance.status)
                 }
-                .disabled(!action.isEnabled(for: instance.status))
+                if let publicIP = instance.publicIP {
+                    DetailRow(label: "Public IP", value: publicIP)
+                }
+                if let privateIP = instance.privateIP {
+                    DetailRow(label: "Private IP", value: privateIP)
+                }
+            } header: {
+                Label("Instance Details", systemImage: "server.rack")
             }
             
-            // Metrics Section
-            Text("Metrics").font(.headline)
-            MetricRow(label: "CPU Usage", value: "32%", icon: "cpu")
-            MetricRow(label: "Memory", value: "2.1 GB", icon: "memorychip")
-            MetricRow(label: "Network In", value: "1.2 MB/s", icon: "arrow.down.circle")
-            MetricRow(label: "Network Out", value: "0.8 MB/s", icon: "arrow.up.circle")
-        }
-        .listStyle(InsetGroupedListStyle())
-        .navigationTitle(instance.name)
-        .alert("Confirm Action", isPresented: $showingActionConfirmation) {
-            Button("Cancel", role: .cancel) { }
-            Button(selectedAction?.title ?? "", role: selectedAction?.destructive == true ? .destructive : .none) {
-                if let action = selectedAction {
-                    Task {
-                        await viewModel.performAction(action, on: instance)
-                        dismiss()
+            // Runtime & Cost Section
+            if instance.status.lowercased() == "running" {
+                Section {
+                    DetailRow(label: "Running Time", value: instance.runningTime)
+                    DetailRow(label: "Hourly Rate", value: formatCurrency(viewModel.hourlyRate, decimals: 4))
+                    DetailRow(label: "Current Cost", value: formatCurrency(viewModel.currentCost))
+                    DetailRow(label: "Projected Daily", value: formatCurrency(viewModel.projectedDailyCost))
+                } header: {
+                    Label("Usage & Costs", systemImage: "chart.line.uptrend.xyaxis")
+                }
+            }
+            
+            // Actions Section
+            Section {
+                ForEach(getAvailableActions(), id: \.self) { action in
+                    Button {
+                        selectedAction = action
+                        showingConfirmation = true
+                    } label: {
+                        HStack {
+                            Image(systemName: action.icon)
+                                .foregroundColor(action.color)
+                                .frame(width: 30)
+                            Text(action.rawValue)
+                                .foregroundColor(action.color)
+                            Spacer()
+                            if viewModel.isLoading {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                            } else {
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
                     }
+                    .disabled(viewModel.isLoading)
+                }
+            } header: {
+                Label("Actions", systemImage: "gear")
+            }
+        }
+        .navigationTitle("Instance Details")
+        .refreshable {
+            await viewModel.fetchInstanceDetails(instanceId: instance.id)
+        }
+        .overlay {
+            if viewModel.isLoading {
+                Color.black.opacity(0.2)
+                    .ignoresSafeArea()
+                    .overlay {
+                        VStack(spacing: 12) {
+                            ProgressView()
+                                .scaleEffect(1.5)
+                            Text("Processing...")
+                                .foregroundColor(.white)
+                                .font(.subheadline)
+                        }
+                    }
+            }
+        }
+        .alert("Confirm Action", isPresented: $showingConfirmation) {
+            Button("Cancel", role: .cancel) { }
+            Button(selectedAction?.rawValue ?? "", role: selectedAction == .terminate ? .destructive : .none) {
+                Task {
+                    await performAction()
                 }
             }
         } message: {
             if let action = selectedAction {
-                Text("Are you sure you want to \(action.title.lowercased()) this instance?")
+                Text(action.confirmationMessage)
             }
         }
-        .overlay {
-            if viewModel.isLoading {
-                ProgressView()
-                    .scaleEffect(1.5)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black.opacity(0.2))
+        .alert("Error", isPresented: .init(
+            get: { viewModel.error != nil },
+            set: { if !$0 { viewModel.error = nil } }
+        )) {
+            Button("OK") { viewModel.error = nil }
+        } message: {
+            if let error = viewModel.error {
+                Text(error)
             }
         }
-        .disabled(viewModel.isLoading)
+        .task {
+            await viewModel.fetchInstanceDetails(instanceId: instance.id)
+        }
+        .onAppear {
+            // Start auto-refresh timer
+            autoRefreshTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
+                Task {
+                    await viewModel.fetchInstanceDetails(instanceId: instance.id)
+                }
+            }
+        }
+        .onDisappear {
+            // Clean up timer
+            autoRefreshTimer?.invalidate()
+            autoRefreshTimer = nil
+        }
+    }
+    
+    private var statusBackgroundColor: Color {
+        switch instance.status.lowercased() {
+        case "running": return Color.green.opacity(0.1)
+        case "stopped": return Color.red.opacity(0.1)
+        case "pending": return Color.orange.opacity(0.1)
+        case "stopping": return Color.orange.opacity(0.1)
+        default: return Color.clear
+        }
+    }
+    
+    private func getAvailableActions() -> [InstanceAction] {
+        switch instance.status.lowercased() {
+        case "running":
+            return [.stop, .reboot, .terminate]
+        case "stopped":
+            return [.start, .terminate]
+        case "stopping", "pending", "shutting-down":
+            return []
+        default:
+            return [.terminate]
+        }
+    }
+    
+    private func performAction() async {
+        guard let action = selectedAction else { return }
+        await viewModel.performAction(action, on: instance)
+        if action == .terminate {
+            dismiss()
+        }
+    }
+    
+    private func formatCurrency(_ value: Double, decimals: Int = 2) -> String {
+        return String(format: "$%.0\(decimals)f", value)
     }
 }
-
-enum InstanceAction: String, CaseIterable, Identifiable {
-    case start, stop, reboot, terminate
-    
-    var id: String { rawValue }
-    var title: String { rawValue.capitalized }
-    var destructive: Bool { self == .terminate }
-    
-    var icon: String {
-        switch self {
-        case .start: return "play.circle.fill"
-        case .stop: return "stop.circle.fill"
-        case .reboot: return "arrow.clockwise.circle.fill"
-        case .terminate: return "xmark.circle.fill"
-        }
-    }
-    
-    var color: Color {
-        switch self {
-        case .start: return .green
-        case .stop: return .orange
-        case .reboot: return .blue
-        case .terminate: return .red
-        }
-    }
-    
-    func isEnabled(for status: String) -> Bool {
-        switch self {
-        case .start: return status == "stopped"
-        case .stop: return status == "running"
-        case .reboot: return status == "running"
-        case .terminate: return status != "terminated"
-        }
-    }
-} 
+ 

@@ -11,10 +11,10 @@ struct DetailRow: View {
         self.trailing = nil
     }
     
-    init<V: View>(label: String, value: String, trailing: V) {
+    init<V: View>(label: String, value: String, @ViewBuilder trailing: () -> V) {
         self.label = label
         self.value = value
-        self.trailing = AnyView(trailing)
+        self.trailing = AnyView(trailing())
     }
     
     var body: some View {
@@ -26,7 +26,6 @@ struct DetailRow: View {
                 trailing
             } else {
                 Text(value)
-                    .foregroundColor(.primary)
             }
         }
     }
